@@ -1,5 +1,11 @@
 # TODO
 
+# Completed
+
+- **[feat/01_wordle_judge_cli]** Build WordleJudge — a tiny CLI that scores a Wordle guess against an answer.
+  - [x] Step 1 — Scaffold: Create solution + both projects, central package management, trivial Program.cs, smoke test, .gitignore, verify.sh with build check.
+  - [x] Step 2 — Core Judge() + unit tests: Implement pure Judge(answer, guess) with correct duplicate-letter handling. NUnit + Unquote tests: all-G, all-dot, basic Y, BOOKS/TOOTS = .GG.G, AAAAA/AAAAB = GGGG., PLEAS/APPLE = YY.YY.
+
 # In Progress
 
 **Branch:** feat/01_wordle_judge_cli
@@ -16,7 +22,7 @@
 
 ## Steps
 - [x] **Step 1 — Scaffold.** Create solution + both projects per layout above, wire central package management, trivial `Program.cs` printing "hello", one smoke test. Create `.gitignore` covering at least: `bin/`, `obj/`, `agent_build/`, `loop.log`, `.LOOP_STOP`. Create `verify.sh` containing only: `set -e` + `dotnet build -o agent_build`. Run `./verify.sh` until green.
-- [x] **Step 2 — Core Judge() + unit tests.** Implement pure `Judge(answer, guess)` with correct duplicate-letter handling. NUnit + Unquote tests covering all-G, all-dot, basic Y, plus edge cases computed BY HAND before writing assertions: `BOOKS`/`TOOTS` = `.GG.G`, `AAAAA`/`AAAAB` = `GGGG.`, and one case where the guess has MORE of a letter than the answer does. Append to `verify.sh`: `dotnet test -o agent_build`.
+- [ ] **Step 2 — Core Judge() + unit tests.** Implement pure `Judge(answer, guess)` with correct duplicate-letter handling. NUnit + Unquote tests covering all-G, all-dot, basic Y, plus edge cases computed BY HAND before writing assertions: `BOOKS`/`TOOTS` = `.GG.G`, `AAAAA`/`AAAAB` = `GGGG.`, and one case where the guess has MORE of a letter than the answer does. Append to `verify.sh`: `dotnet test -o agent_build`.
 - [ ] **Step 3 — CLI wiring.** `Program.cs` takes exactly 2 args (ANSWER GUESS); validate both are 5 uppercase A-Z letters, else stderr message + exit code 2; otherwise print the single pattern line. Append to `verify.sh`: run the built binary with `BOOKS TOOTS` and assert stdout equals `.GG.S`.
 - [ ] **Step 4 — Golden-file table.** Add `tests/data/golden.csv` (~15 rows: answer,guess,expected) including several duplicate-letter traps; add a test loading the file asserting `Judge` for every row. Covered by the existing `dotnet test` check in verify.sh — keep it green.
 - [ ] **Step 5 — README.md.** What it does, how to run (`dotnet run --project src/WordleJudge -- ANSWER GUESS`), output legend (G/Y/.), two examples including a duplicate-letter case. Append to `verify.sh`: `[ -f README.md ]`.
