@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/WordleJudge/WordleJudge.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/WordleJudge.Tests/WordleJudge.Tests.csproj" />
+  </Folder>
+</Solution>

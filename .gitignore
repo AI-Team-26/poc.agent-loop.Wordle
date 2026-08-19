@@ -1,0 +1,6 @@
+bin/
+obj/
+agent_build/
+loop.log
+.LOOP_STOP
+.DS_Store
